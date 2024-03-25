@@ -1,0 +1,45 @@
+name: smart_city_03
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=2.18.6 <3.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  get: 4.6.5
+  flutter: 
+    sdk: flutter
+  flutter_screenutil: ^5.7.0
+  flutter_swiper_view: ^1.1.8
+  dio: ^5.4.1
+  flutter_staggered_grid_view: ^0.6.2
+  shared_preferences: ^2.2.0
+  fluttertoast: ^8.2.4
+
+dev_dependencies: 
+  flutter_lints: ^2.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+  assets:
+    - assets/smart_city_images/banner1.jpg
+    - assets/smart_city_images/banner2.jpg
+    - assets/smart_city_images/banner3.jpg
+    - assets/smart_city_images/guide1.jpg
+    - assets/smart_city_images/guide2.jpg
+    - assets/smart_city_images/guide3.jpg
+    - assets/smart_city_images/guide4.jpg
+    - assets/smart_city_images/guide5.jpg
+    - assets/smart_city_images/logo.png
+    - assets/smart_city_images/guide1.jpg
+    - assets/smart_city_images/guide2.jpg
+    - assets/smart_city_images/guide3.jpg
+    - assets/smart_city_images/guide4.jpg
+    - assets/smart_city_images/guide5.jpg
+    - assets/smart_city_images/chaotianjiang.jpg
+    - assets/tangtang/10001.jpg
+    - assets/sysImage/failImage.jpg
+
