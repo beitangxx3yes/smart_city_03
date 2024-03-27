@@ -5,8 +5,8 @@ import 'package:smart_city_03/app/services/httpsClient.dart';
 class TabsController extends GetxController {
   //TODO: Implement TabsController
   ///tab页面
-  RxInt pageIndex = 0.obs;
-  PageController pageController = PageController(initialPage: 0,);
+  RxInt pageIndex = 3.obs;
+  PageController pageController = PageController(initialPage: 3,);
 
 ///chnagePage
  void changePage(index){
@@ -19,7 +19,7 @@ class TabsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    HttpsClient();
+    HttpsClient.init();
   }
 
 

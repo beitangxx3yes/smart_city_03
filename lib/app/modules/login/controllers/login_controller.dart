@@ -29,10 +29,20 @@ class LoginController extends GetxController {
 
     Fluttertoast.showToast(msg: "登录成功！");
     await Future.delayed(Duration(seconds: 2));
+    await getUserInfo();
     Get.offNamed("/tabs");
+
+
     
     
   }
+
+  getUserInfo() async {
+    var res = await HttpsClient.get("/prod-api/api/common/user/getInfo");
+    Storage.setData("userInfo", res["user"]);
+    // userInfo.value = res["user"];
+  }
+
 
   ///用户注册
   void register() async{
@@ -65,8 +75,7 @@ class LoginController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    HttpsClient();
-    login();
+    HttpsClient.init();
   }
 
   @override

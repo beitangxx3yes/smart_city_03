@@ -26,13 +26,18 @@ class ServiceView extends GetView<ServiceController> {
               color: Color.fromRGBO(227, 225, 222, 1.0),
             ),
             child: TextField(
+              style: TextStyle(
+                height: 1.4
+              ),
               cursorColor: Colors.black38,
               cursorHeight: ScreenAdapter.height(60),
+              cursorWidth: ScreenAdapter.height(3),
               onChanged: (value){
                 controller.searchValue = value;
               },
               decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(bottom: ScreenAdapter.height(10)),
+                hintText: "搜索服务",
+                  // contentPadding: EdgeInsets.only(left: ScreenAdapter.height(10)),
                 border: InputBorder.none
               ),
             ),
