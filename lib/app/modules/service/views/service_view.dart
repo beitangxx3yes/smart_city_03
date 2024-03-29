@@ -63,20 +63,20 @@ class ServiceView extends GetView<ServiceController> {
                    itemBuilder: (context, index) {
                      return InkWell(
                        onTap: () {
-                         print(controller.searchServiceList[index]["id"]);
+
                        },
                        child: Column(
                          children: [
                            Image.network(
                              HttpsClient.replaeUrl(
-                                 controller.searchServiceList.value[index]["imgUrl"]),
+                                 controller.searchServiceList[index]["imgUrl"]),
                              width: ScreenAdapter.size(100),
                              height: ScreenAdapter.size(100),
                            ),
                            SizedBox(
                              height: ScreenAdapter.height(20),
                            ),
-                           Text(controller.searchServiceList.value[index]["serviceName"])
+                           Text(controller.searchServiceList[index]["serviceName"])
                          ],
                        ),
                      );

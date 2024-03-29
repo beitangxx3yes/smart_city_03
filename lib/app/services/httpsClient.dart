@@ -21,8 +21,8 @@ class HttpsClient{
    BaseOptions options = BaseOptions();
    options.baseUrl = domain;
 
-   options.connectTimeout = const Duration(milliseconds: 5000);
-   options.receiveTimeout = const Duration(milliseconds: 3000);
+   // options.connectTimeout = const Duration(milliseconds: 5000);
+   // options.receiveTimeout = const Duration(milliseconds: 3000);
    options.responseType = ResponseType.json;
    // options.headers = {"Authorization":token};
    dio.options = options;
@@ -44,7 +44,7 @@ class HttpsClient{
           actions: [
             TextButton(onPressed: (){
               Storage.removeData("token");
-              // Get.offAllNamed("/login");
+              Get.offAllNamed("/login");
               Get.back();
             }, child: Text("确认"))
           ]
@@ -61,6 +61,19 @@ class HttpsClient{
       if(res.data["code"]!=200){
         Fluttertoast.showToast(msg: res.data["msg"]);
       }
+      if(res.data["code"]==401){
+        Get.defaultDialog(
+            title: "提示",
+            content: Text("用户认证已过期，请重新登录"),
+            actions: [
+              TextButton(onPressed: (){
+                Storage.removeData("token");
+                Get.offAllNamed("/login");
+                Get.back();
+              }, child: Text("确认"))
+            ]
+        );
+      }
       return res.data;
     }catch(e){
       print("请求数据异常");
@@ -68,6 +81,33 @@ class HttpsClient{
     }
   }
 
+  static Future<dynamic> put (String api,Map data) async{
+    String token = await Storage.getData("token")??"";
+    dio.options.headers = {"Authorization":token};
+    try{
+      var res = await dio.put(api,data: data);
+      if(res.data["code"]!=200){
+        Fluttertoast.showToast(msg: res.data["msg"]);
+      }
+      if(res.data["code"]==401){
+        Get.defaultDialog(
+            title: "提示",
+            content: Text("用户认证已过期，请重新登录"),
+            actions: [
+              TextButton(onPressed: (){
+                Storage.removeData("token");
+                Get.offAllNamed("/login");
+                Get.back();
+              }, child: Text("确认"))
+            ]
+        );
+      }
+      return res.data;
+    }catch(e){
+      print("请求数据异常");
+      return null;
+    }
+  }
 
   static String replaeUrl(String pic) {
     if(pic == null)return "";

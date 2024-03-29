@@ -59,32 +59,6 @@ class ServiceController extends GetxController {
   ///服务列表控制器
   ScrollController scrollController = ScrollController();
 
-  ///滚动监听（寄
-  // ///列表移动监听
-  // void scrollControllerlis(){
-  //   scrollController.addListener(() {
-  //     print(key0.currentContext);
-  //     if(key0.currentContext!=null && categoryIndex.value !=0){
-  //       print(1);
-  //       categoryIndex.value = 0;
-  //     }
-  //     if(key1.currentContext!=null&&key0.currentContext == null &&categoryIndex.value!=1){
-  //       print(2);
-  //
-  //       categoryIndex.value =1;
-  //
-  //     }
-  //          if(key2.currentContext!=null&&key1.currentContext == null &&categoryIndex.value!=2){
-  //            print(3);
-  //
-  //            categoryIndex.value =2;
-  //
-  //     }
-  //          update();
-  //
-  //   });
-  // }
-
 
   RxList<GlobalKey> keyList = <GlobalKey>[].obs;
 
@@ -105,6 +79,21 @@ class ServiceController extends GetxController {
   void updateCategoryIndex(int index) {
     categoryIndex.value = index;
   }
+
+
+  ///服务项点击
+  void serviceTap(id){
+    print(id);
+
+    switch (id){
+      case 2:
+        Get.toNamed("/city-subway");
+    }
+
+
+
+  }
+
 
 
 

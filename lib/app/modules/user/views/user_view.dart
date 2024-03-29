@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:smart_city_03/app/modules/user/views/order_view.dart';
-import 'package:smart_city_03/app/modules/user/views/re_password_view.dart';
+// import 'package:smart_city_03/app/modules/user/views/re_password_view.dart';
 import 'package:smart_city_03/app/modules/user/views/setting_view.dart';
 import 'package:smart_city_03/app/services/screenAdapter.dart';
 import 'package:video_player/video_player.dart';
@@ -113,7 +113,7 @@ class UserView extends GetView<UserController> {
                                   elevation: MaterialStateProperty.all(0),
                                 ),
                                 onPressed: () {
-                                  Get.to(SettingView());
+                                  Get.toNamed("/setting");
                                 },
                                 child: Text("个人设置"))
                           ],
@@ -195,21 +195,21 @@ class UserView extends GetView<UserController> {
           title: Text("我的订单"),
           trailing: Icon(Icons.chevron_right),
           onTap: () {
-            Get.to(OrderView());
+            Get.toNamed("/order");
           },
         ),
         ListTile(
           title: Text("修改密码"),
           trailing: Icon(Icons.chevron_right),
           onTap: () {
-            Get.to(RePasswordView());
+            Get.toNamed("/re-password");
           },
         ),
         ListTile(
           title: Text("意见反馈"),
           trailing: Icon(Icons.chevron_right),
           onTap: () {
-            Get.to(FeedbackView());
+            Get.toNamed("/feed-back");
           },
         ),
       ],
